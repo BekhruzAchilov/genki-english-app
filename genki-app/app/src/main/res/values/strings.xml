@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Genki English</string>
+    <string name="setup_title">Server sozlamalari</string>
+    <string name="hint_url">Server manzili</string>
+    <string name="hint_key">Kalit (key)</string>
+    <string name="save">Saqlash</string>
+    <string name="settings_title">Sozlamalar</string>
+    <string name="cached_fmt">Yuklangan: %1$d ta fayl, %2$d MB</string>
+    <string name="download_all">Hammasini yuklash</string>
+    <string name="change_server">Serverni o\'zgartirish</string>
+    <string name="close">Yopish</string>
+    <string name="download_started">Yuklanmoqda...</string>
+    <string name="download_done">Yuklash tugadi</string>
+    <string name="no_server">Serverga ulanib bo\'lmadi</string>
+</resources>

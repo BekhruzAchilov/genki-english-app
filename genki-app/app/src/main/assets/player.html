@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<style>
+  html, body { margin:0; padding:0; width:100%; height:100%; background:#000; overflow:hidden; }
+  #stage { width:100%; height:100%; }
+  #gear {
+    position:fixed; right:0; bottom:0; width:44px; height:44px;
+    opacity:0.12; background:transparent; border:0; color:#fff; font-size:20px;
+  }
+  #msg {
+    position:fixed; top:50%; left:0; right:0; transform:translateY(-50%);
+    color:#888; font-family:sans-serif; text-align:center; font-size:18px;
+  }
+</style>
+</head>
+<body>
+
+<div id="msg">...</div>
+<div id="stage"></div>
+<button id="gear" onclick="Android.openSettings()">&#9881;</button>
+
+<script src="/ruffle/ruffle.js"></script>
+<script>
+  window.RufflePlayer = window.RufflePlayer || {};
+  window.RufflePlayer.config = {
+    autoplay: "on",
+    unmuteOverlay: "hidden",   // boards have no mute gesture; start with sound
+    letterbox: "on",           // content is 4:3, boards are 16:9
+    scale: "showAll",
+    quality: "high",
+    contextMenu: false,        // no right-click menu for children to open
+    splashScreen: false
+  };
+
+  window.addEventListener("load", function () {
+    var ruffle = window.RufflePlayer.newest();
+    var player = ruffle.createPlayer();
+    player.style.width = "100%";
+    player.style.height = "100%";
+    document.getElementById("stage").appendChild(player);
+    document.getElementById("msg").style.display = "none";
+
+    player.load({
+      url: "/games/MENU.SWF",
+      base: "/games/"          // this is what makes loadMovie() work
+    }).catch(function (e) {
+      document.getElementById("msg").style.display = "block";
+      document.getElementById("msg").textContent = "Could not load menu: " + e;
+    });
+  });
+</script>
+
+</body>
+</html>
